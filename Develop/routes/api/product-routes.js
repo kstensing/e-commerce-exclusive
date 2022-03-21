@@ -11,9 +11,10 @@ router.get('/', (req, res) => {
     attributes: ['id', 'product_name', 'price', 'stock', 'category_id'],
     include: [
       {
-        //Are these the other two i should include?
-        model: ProductTag,
-        attributes: ['tag_id']
+        model: Category
+      },
+      {
+        model: Tag
       }
     ]
   })
