@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
       {
         //Are these the other two i should include?
         model: ProductTag,
-        attributes: ['product_id', 'tag_id']
+        attributes: ['tag_id']
       }
     ]
   })
@@ -27,7 +27,24 @@ router.get('/', (req, res) => {
 // get one product
 router.get('/:id', (req, res) => {
   // find a single product by its `id`
-  // be sure to include its associated Category and Tag data
+  Product.findOne({
+    where: {
+      id: req.params.id
+    },// be sure to include its associated Category and Tag data
+    attributes: ['id', 'product_name', 'price', 'stock', 'category_id'],
+  })
+  .then(dbPostData => {
+    if (!dbPostData) {
+      res.status(404).json({ message: 'That id was not found' });
+      return;
+    }
+    res.json(dbPostData);
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
+  
 });
 
 // create new product
