@@ -3,6 +3,8 @@
 
   ## Description
   This is the back end for an e-commerce site.  Use this to create a database and seed it with products for your site.  There are API routes for POST, PUT, GET (all), GET (single), and DELETE for different categories, tags, and products.  
+  
+  [DEMO VIDEO](https://drive.google.com/file/d/1piSKjv2U4Sc7bCAa35dTl8vSLYgQdHyh/view)
 
   ## Table of Contents
 
